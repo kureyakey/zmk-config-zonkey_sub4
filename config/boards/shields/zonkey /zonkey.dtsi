@@ -57,9 +57,10 @@
     trackpad: trackpad@2a {
         compatible = "cirque,pinnacle";
         reg = <0x2a>;
+        /* DRピン。配線に合わせて D7 (P0.10) を指定 */
         dr-gpios = <&xiao_d 7 (GPIO_ACTIVE_HIGH)>; 
         
-        /* 数字の <1> ではなく、文字列の "1x" に修正します */
+        /* ↓ここを数字の <1> から文字列の "1x" に変更します */
         sensitivity = "1x"; 
         
         sleep;
