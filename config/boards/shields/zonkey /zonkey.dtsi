@@ -31,7 +31,15 @@
             ;
     };
 
-    /* Cirqueからの入力をマウス挙動に変換する設定 */
+    /* ここに left_encoder というラベル（名前）を定義します */
+    left_encoder: left_encoder {
+        compatible = "alps,ec11";
+        a-gpios = <&xiao_d 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&xiao_d 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <80>;
+        status = "disabled";
+    };
+
     trackpad_listener: trackpad_listener {
         compatible = "zmk,input-behavior-listener";
         device = <&trackpad>;
@@ -44,15 +52,11 @@
     };
 };
 
-/* XIAO BLEのI2C設定 */
 &i2c0 {
     status = "okay";
-    /* D4=SDA, D5=SCL は seeeduino_xiao_ble のデフォルト定義を使用 */
-
     trackpad: trackpad@2a {
         compatible = "cirque,pinnacle";
         reg = <0x2a>;
-        /* DRピンを D7 に設定。配線に合わせて変更してください */
         dr-gpios = <&xiao_d 7 (GPIO_ACTIVE_HIGH)>; 
         sensitivity = <1>;
         sleep;
