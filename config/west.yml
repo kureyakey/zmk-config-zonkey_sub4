@@ -11,8 +11,8 @@ manifest:
       remote: zmkfirmware
       revision: v0.3
       import: app/west.yml
-    - name: zmk-input-behavior-listener
-      remote: kureyakey
+    - name: cirque-input-module
+      remote: kureayakey
       revision: main
     - name: zmk-rgbled-widget  # <-- new entry
       remote: caksoylar
