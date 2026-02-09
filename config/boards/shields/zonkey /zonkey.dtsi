@@ -50,22 +50,6 @@
     };
 };
 
-&i2c0 {
-    status = "okay";
-    /* XIAO BLEのデフォルトI2Cピン(D4, D5)を使用する場合 */
-
-    trackpad: trackpad@2a {
-        compatible = "cirque,pinnacle";
-        reg = <0x2a>;
-        /* DR (Interrupt) ピンの指定 */
-        /* 例：D3ピン (P0.29) に接続する場合 */
-        dr-gpios = <&gpio0 29 (GPIO_ACTIVE_HIGH)>; 
-        
-        sensitivity = <1>;
-        sleep;
-    };
-};
-
 / {
     trackpad_listener {
         compatible = "zmk,input-behavior-listener";
