@@ -14,12 +14,11 @@
         ;
 };
 
-/* I2Cピンの設定（D4, D5） */
 &pinctrl {
     i2c0_default: i2c0_default {
         group1 {
-            psels = <NRF_PSEL(TWIM_SDA, 0, 4)>, 
-                    <NRF_PSEL(TWIM_SCL, 0, 5)>; 
+            psels = <NRF_PSEL(TWIM_SDA, 0, 4)>,
+                    <NRF_PSEL(TWIM_SCL, 0, 5)>;
             bias-pull-up;
         };
     };
@@ -33,19 +32,14 @@
     };
 };
 
-/* トラックパッドの具体的な設定（dtsiの内容を補足） */
 &i2c0 {
     status = "okay";
     pinctrl-0 = <&i2c0_default>;
     pinctrl-1 = <&i2c0_sleep>;
     pinctrl-names = "default", "sleep";
+};
 
-    /* 重複していた trackpad 定義を &trackpad への参照にまとめました */
-    &trackpad {
-        /* 配線に合わせて D3(P0.29) を指定 */
-        dr-gpios = <&gpio0 29 (GPIO_ACTIVE_HIGH)>; 
-        /* dtsi側で sensitivity = "1x"; と書いているので
-           ここでは書かなくてOKです 
-        */
-    };
+/* 参照は i2c0 のブロックの外に記述します */
+&trackpad {
+    dr-gpios = <&gpio0 29 (GPIO_ACTIVE_HIGH)>; 
 };
