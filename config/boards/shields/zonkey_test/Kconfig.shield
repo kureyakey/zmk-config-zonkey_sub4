@@ -1,0 +1,5 @@
+config SHIELD_ZONKEY_test_R
+    def_bool $(shields_list_contains,zonkey_test_R)
+
+config SHIELD_ZONKEY_test_L
+    def_bool $(shields_list_contains,zonkey_test_L)
