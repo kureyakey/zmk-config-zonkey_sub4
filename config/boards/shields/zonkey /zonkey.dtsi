@@ -58,7 +58,7 @@
         compatible = "cirque,pinnacle";
         reg = <0x2a>;
         dr-gpios = <&xiao_d 7 GPIO_ACTIVE_HIGH>; /* カッコを外しました */
-        sensitivity = <1>;                      /* 数値に変更しました */
+        sensitivity = "1x";                     /* 数値に変更しました */
         sleep;
     };
 };
