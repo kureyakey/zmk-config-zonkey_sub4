@@ -1,8 +1,8 @@
-name: Build ZMK firmware
-on: [push, pull_request, workflow_dispatch]
-
 jobs:
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3
-with:
-      build_matrix_path: ".github/workflows/build-test.yml" # ← 自分自身を指定
+    with:
+      # ここを追加！自分自身のパスを指定します
+      build_matrix_path: ".github/workflows/build-test.yml"
+      # もし config フォルダの場所が標準と違うならこれも確認
+      config_path: "config"
