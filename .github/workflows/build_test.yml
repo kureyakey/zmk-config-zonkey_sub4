@@ -1,11 +1,6 @@
-name: Build ZMK firmware
+name: Build
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3
-    with:
-      # 【ここが最重要】読み込む設定ファイルを build_test.yaml に指定する
-      build_matrix_path: "build_test.yaml"
-      # configフォルダの場所も念のため明示
-      config_path: "config"
