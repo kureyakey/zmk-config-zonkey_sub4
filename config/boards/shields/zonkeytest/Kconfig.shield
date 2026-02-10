@@ -3,4 +3,3 @@ config SHIELD_ZONKEYTEST_L
 
 config SHIELD_ZONKEYTEST_R
     def_bool $(shields_list_contains,zonkeytest_R)
-
