@@ -1,4 +1,4 @@
-#include "zonkey.dtsi"
+#include "zonkey_test.dtsi"
 
 &default_transform {
     col-offset = <6>;
