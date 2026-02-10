@@ -57,8 +57,8 @@
     trackpad: trackpad@2a {
         compatible = "cirque,pinnacle";
         reg = <0x2a>;
-        dr-gpios = <&xiao_d 7 (GPIO_ACTIVE_HIGH)>; 
-        sensitivity = "1x";   /* ←ここが "1x" であること！ */
+        dr-gpios = <&xiao_d 7 GPIO_ACTIVE_HIGH>; /* カッコを外しました */
+        sensitivity = <1>;                      /* 数値に変更しました */
         sleep;
     };
 };
